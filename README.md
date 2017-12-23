@@ -2,7 +2,7 @@
 
 ## 简要说明
 
-采用react-router管理前端路由，基于antd开发react应用。redux管理数据流。node可用做中间层，mongodb用来存储虚拟数据（mockjs），也可以用做仅服务中间层的数据库。redis 缓存显示数据。nginx是最简单的反向代理而已。其中虚拟接口glob生成的路径，有兴趣的可以看看，这个脚手架我也是在别人的基础上加工的。
+采用react-router管理前端路由，基于antd开发react应用。redux管理数据流。node可用做中间层，
 
 ## 需求配置
 
@@ -17,7 +17,7 @@
 确认好你的环境配置，然后就可以开始以下步骤。
 
 ```bash
-$ git clone https://github.com/edwardxyt/react_redux_express_mongo_redis.git
+$ git clone
 $ cd react_redux_express_mongo_redis
 $ npm install                   # Install project dependencies
 $ npm run dev                   # Compile and launch
@@ -26,19 +26,6 @@ $ npm run deploy:prod           # 生成打包
 $ npm run start                 # node服务器
 ```
 
-启动服务: nginx、mongodb、redis。
-
-```bash
-$ mongod --dbpath /Users/edward/workspaces/gm-web/database -logpath /Users/edward/workspaces/gm-web/logs --fork --port 27017
-$ mongod -f /Users/edward/workspaces/gm-web/mongodb.conf
-
-$ redis-server /Users/edward/workspaces/react-redux/redis.conf
-$ nginx -t -c /Users/edward/workspaces/react-redux/nginx.conf
-```
-
-如果一切顺利，你会看到如下:
-
-![](https://github.com/edwardxyt/react_redux_express_mongo_redis/blob/master/README.png?raw=true) ![](https://github.com/edwardxyt/react_redux_express_mongo_redis/blob/master/INDEX.png?raw=true) ![](https://github.com/edwardxyt/react_redux_express_mongo_redis/blob/master/POSTMAN.png?raw=true)
 
 开发过程中，你用得最多的会是`npm dev`，但是这里还有很多其它的处理：
 
@@ -104,5 +91,3 @@ Babel被配置[babel-plugin-transform-runtime](https://www.npmjs.com/package/bab
 在生产环境下，webpack会导出一个css文件并压缩Javascript，并把js模块优化到最好的性能。
 
 ## 静态部署
-
-如果你正在使用nginx处理程序，确保所有的路由都直接指向 `~/dist/index.html` 文件，然后让react-router处理剩下的事。如果你不是很确定应该怎么做，[文档在这里](https://github.com/reactjs/react-router/blob/master/docs/guides/Histories.md#configuring-your-server)。Express在脚手架中用于扩展服务和代理API，或者其它你想要做的事，这完全取决于你。
